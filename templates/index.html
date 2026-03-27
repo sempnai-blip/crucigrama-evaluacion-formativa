@@ -3,43 +3,29 @@
 <head>
 
 <meta charset="UTF-8">
-
 <title>Crucigrama Evaluación Formativa</title>
 
 <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
 <script>
 
-const soluciones = [
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","R"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","E"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","T"," "," "," "],
-[" "," ","E","V","I","D","E","N","C","I","A","S"," "," ","R"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","F"," "," ","O"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","O"," "," ","A"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","R"," "," ","L"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","M"," "," ","I"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","A"," "," ","M"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","T"," "," ","E"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","I"," "," ","N"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","V"," "," ","T"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," ","A"," "," ","A"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","C"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","I"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","O"," "," "," "],
-[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","N"," "," "," "]
-];
+const soluciones = {
+"r4c3":"E","r4c4":"V","r4c5":"I","r4c6":"D","r4c7":"E","r4c8":"N","r4c9":"C","r4c10":"I","r4c11":"A","r4c12":"S",
+
+"r5c12":"F","r6c12":"O","r7c12":"R","r8c12":"M","r9c12":"A","r10c12":"T","r11c12":"I","r12c12":"V","r13c12":"A",
+
+"r1c15":"R","r2c15":"E","r3c15":"T","r4c15":"R","r5c15":"O","r6c15":"A","r7c15":"L","r8c15":"I","r9c15":"M",
+"r10c15":"E","r11c15":"N","r12c15":"T","r13c15":"A","r14c15":"C","r15c15":"I","r16c15":"O","r17c15":"N"
+};
 
 function revisar(){
 
-let inputs=document.querySelectorAll(".cell")
+document.querySelectorAll("input").forEach(input=>{
 
-inputs.forEach(input=>{
+const id=input.id
+const valor=input.value.toUpperCase()
 
-let fila=input.dataset.row
-let col=input.dataset.col
-
-if(input.value.toUpperCase()===soluciones[fila][col]){
+if(soluciones[id]===valor){
 
 input.classList.add("correct")
 input.classList.remove("incorrect")
@@ -63,31 +49,223 @@ input.classList.remove("correct")
 
 <h1>Crucigrama: Evaluación Formativa</h1>
 
-<div class="crossword">
+<table class="grid">
 
-<script>
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td><input id="r1c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-for(let i=0;i<17;i++){
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td><input id="r2c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-for(let j=0;j<18;j++){
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td><input id="r3c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-if(soluciones[i][j]==" "){
+<tr>
+<td class="block"></td><td class="block"></td>
+<td><input id="r4c3"></td>
+<td><input id="r4c4"></td>
+<td><input id="r4c5"></td>
+<td><input id="r4c6"></td>
+<td><input id="r4c7"></td>
+<td><input id="r4c8"></td>
+<td><input id="r4c9"></td>
+<td><input id="r4c10"></td>
+<td><input id="r4c11"></td>
+<td><input id="r4c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r4c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-document.write('<div class="block"></div>')
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r5c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r5c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-}else{
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r6c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r6c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-document.write(`<input maxlength="1" class="cell" data-row="${i}" data-col="${j}">`)
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r7c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r7c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-}
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r8c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r8c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-}
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r9c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r9c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-}
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r10c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r10c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-</script>
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r11c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r11c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
 
-</div>
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r12c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r12c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+<tr>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td><input id="r13c12"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r13c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r14c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r15c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r16c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+<tr>
+<td class="block"></td><td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td><td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td class="block"></td>
+<td><input id="r17c15"></td>
+<td class="block"></td><td class="block"></td>
+</tr>
+
+</table>
 
 <button onclick="revisar()">Revisar respuestas</button>
 
