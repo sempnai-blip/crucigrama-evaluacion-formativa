@@ -9,23 +9,22 @@
 
 <script>
 
-const soluciones = {
-"r4c3":"E","r4c4":"V","r4c5":"I","r4c6":"D","r4c7":"E","r4c8":"N","r4c9":"C","r4c10":"I","r4c11":"A","r4c12":"S",
+const respuestas = {
 
-"r5c12":"F","r6c12":"O","r7c12":"R","r8c12":"M","r9c12":"A","r10c12":"T","r11c12":"I","r12c12":"V","r13c12":"A",
+EVIDENCIAS:"EVIDENCIAS",
+FORMATIVA:"FORMATIVA",
+RETROALIMENTACION:"RETROALIMENTACION"
 
-"r1c15":"R","r2c15":"E","r3c15":"T","r4c15":"R","r5c15":"O","r6c15":"A","r7c15":"L","r8c15":"I","r9c15":"M",
-"r10c15":"E","r11c15":"N","r12c15":"T","r13c15":"A","r14c15":"C","r15c15":"I","r16c15":"O","r17c15":"N"
-};
+}
 
 function revisar(){
 
 document.querySelectorAll("input").forEach(input=>{
 
-const id=input.id
-const valor=input.value.toUpperCase()
+let correcta=input.dataset.letra
+let valor=input.value.toUpperCase()
 
-if(soluciones[id]===valor){
+if(valor===correcta){
 
 input.classList.add("correct")
 input.classList.remove("incorrect")
@@ -49,223 +48,56 @@ input.classList.remove("correct")
 
 <h1>Crucigrama: Evaluación Formativa</h1>
 
-<table class="grid">
+<div class="contenedor">
 
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td><input id="r1c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<img src="{{ url_for('static', filename='crucigrama.png') }}" class="fondo">
 
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td><input id="r2c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<!-- EVIDENCIAS -->
 
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td><input id="r3c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<input style="top:210px;left:170px" data-letra="E">
+<input style="top:210px;left:210px" data-letra="V">
+<input style="top:210px;left:250px" data-letra="I">
+<input style="top:210px;left:290px" data-letra="D">
+<input style="top:210px;left:330px" data-letra="E">
+<input style="top:210px;left:370px" data-letra="N">
+<input style="top:210px;left:410px" data-letra="C">
+<input style="top:210px;left:450px" data-letra="I">
+<input style="top:210px;left:490px" data-letra="A">
+<input style="top:210px;left:530px" data-letra="S">
 
-<tr>
-<td class="block"></td><td class="block"></td>
-<td><input id="r4c3"></td>
-<td><input id="r4c4"></td>
-<td><input id="r4c5"></td>
-<td><input id="r4c6"></td>
-<td><input id="r4c7"></td>
-<td><input id="r4c8"></td>
-<td><input id="r4c9"></td>
-<td><input id="r4c10"></td>
-<td><input id="r4c11"></td>
-<td><input id="r4c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r4c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<!-- FORMATIVA vertical -->
 
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r5c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r5c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<input style="top:250px;left:530px" data-letra="F">
+<input style="top:290px;left:530px" data-letra="O">
+<input style="top:330px;left:530px" data-letra="R">
+<input style="top:370px;left:530px" data-letra="M">
+<input style="top:410px;left:530px" data-letra="A">
+<input style="top:450px;left:530px" data-letra="T">
+<input style="top:490px;left:530px" data-letra="I">
+<input style="top:530px;left:530px" data-letra="V">
+<input style="top:570px;left:530px" data-letra="A">
 
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r6c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r6c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<!-- RETROALIMENTACION vertical derecha -->
 
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r7c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r7c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
+<input style="top:40px;left:780px" data-letra="R">
+<input style="top:80px;left:780px" data-letra="E">
+<input style="top:120px;left:780px" data-letra="T">
+<input style="top:160px;left:780px" data-letra="R">
+<input style="top:200px;left:780px" data-letra="O">
+<input style="top:240px;left:780px" data-letra="A">
+<input style="top:280px;left:780px" data-letra="L">
+<input style="top:320px;left:780px" data-letra="I">
+<input style="top:360px;left:780px" data-letra="M">
+<input style="top:400px;left:780px" data-letra="E">
+<input style="top:440px;left:780px" data-letra="N">
+<input style="top:480px;left:780px" data-letra="T">
+<input style="top:520px;left:780px" data-letra="A">
+<input style="top:560px;left:780px" data-letra="C">
+<input style="top:600px;left:780px" data-letra="I">
+<input style="top:640px;left:780px" data-letra="O">
+<input style="top:680px;left:780px" data-letra="N">
 
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r8c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r8c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r9c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r9c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r10c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r10c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r11c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r11c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r12c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r12c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td><input id="r13c12"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r13c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r14c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r15c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r16c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-<tr>
-<td class="block"></td><td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td><td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td class="block"></td>
-<td><input id="r17c15"></td>
-<td class="block"></td><td class="block"></td>
-</tr>
-
-</table>
+</div>
 
 <button onclick="revisar()">Revisar respuestas</button>
 
