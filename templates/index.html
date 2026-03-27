@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Crucigrama Evaluación Formativa</title>
+    <script>
+        async function revisar() {
+
+            let respuestas = {}
+
+            document.querySelectorAll("input").forEach(input=>{
+                respuestas[input.name]=input.value
+            })
+
+            let response = await fetch("/check", {
+                method:"POST",
+                headers:{'Content-Type':'application/json'},
+                body:JSON.stringify(respuestas)
+            })
+
+            let resultado = await response.json()
+
+            for(let key in resultado){
+                let campo=document.querySelector(`[name="${key}"]`)
+                campo.style.backgroundColor =
+                    resultado[key] ? "#b6fcb6" : "#ffb6b6"
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Crucigrama: Evaluación Formativa</h2>
+
+<p>3. Productos o trabajos que demuestran el aprendizaje</p>
+<input name="3">
+
+<p>6. Evaluación realizada entre estudiantes</p>
+<input name="6">
+
+<p>9. Evaluación realizada por el propio estudiante</p>
+<input name="9">
+
+<p>11. Proceso mediante el cual se adquieren conocimientos</p>
+<input name="11">
+
+<p>12. Capacidad del estudiante para autorregularse</p>
+<input name="12">
+
+<p>13. Proceso de ajuste de la enseñanza según avances</p>
+<input name="13">
+
+<br><br>
+
+<button onclick="revisar()">Revisar respuestas</button>
+
+</body>
+</html>
