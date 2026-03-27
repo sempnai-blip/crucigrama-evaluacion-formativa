@@ -1,0 +1,43 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+}
+
+h1 {
+    margin-top: 20px;
+}
+
+.crossword {
+    display: grid;
+    grid-template-columns: repeat(18, 40px);
+    gap: 2px;
+    justify-content: center;
+    margin: 20px auto;
+}
+
+.cell {
+    width: 40px;
+    height: 40px;
+    text-transform: uppercase;
+    text-align: center;
+    font-size: 20px;
+}
+
+.block {
+    background-color: black;
+}
+
+.correct {
+    background-color: #b6fcb6;
+}
+
+.incorrect {
+    background-color: #ffb6b6;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 16px;
+    margin-top: 20px;
+}
