@@ -1,59 +1,93 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Crucigrama Evaluación Formativa</title>
 
-    <link rel="stylesheet" href="/static/style.css">
+<meta charset="UTF-8">
 
-    <script>
-        async function revisar() {
+<title>Crucigrama Evaluación Formativa</title>
 
-            let respuestas = {}
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 
-            document.querySelectorAll("input").forEach(input=>{
-                respuestas[input.name]=input.value
-            })
+<script>
 
-            let response = await fetch("/check", {
-                method:"POST",
-                headers:{'Content-Type':'application/json'},
-                body:JSON.stringify(respuestas)
-            })
+const soluciones = [
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","R"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","E"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","T"," "," "," "],
+[" "," ","E","V","I","D","E","N","C","I","A","S"," "," ","R"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","F"," "," ","O"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","O"," "," ","A"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","R"," "," ","L"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","M"," "," ","I"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","A"," "," ","M"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","T"," "," ","E"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","I"," "," ","N"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","V"," "," ","T"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," ","A"," "," ","A"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","C"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","I"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","O"," "," "," "],
+[" "," "," "," "," "," "," "," "," "," "," "," "," "," ","N"," "," "," "]
+];
 
-            let resultado = await response.json()
+function revisar(){
 
-            for(let key in resultado){
-                let campo=document.querySelector(`[name="${key}"]`)
-                campo.style.backgroundColor =
-                    resultado[key] ? "#b6fcb6" : "#ffb6b6"
-            }
-        }
-    </script>
+let inputs=document.querySelectorAll(".cell")
+
+inputs.forEach(input=>{
+
+let fila=input.dataset.row
+let col=input.dataset.col
+
+if(input.value.toUpperCase()===soluciones[fila][col]){
+
+input.classList.add("correct")
+input.classList.remove("incorrect")
+
+}else{
+
+input.classList.add("incorrect")
+input.classList.remove("correct")
+
+}
+
+})
+
+}
+
+</script>
+
 </head>
 
 <body>
 
-<h2>Crucigrama: Evaluación Formativa</h2>
+<h1>Crucigrama: Evaluación Formativa</h1>
 
-<p>3. Productos o trabajos que demuestran el aprendizaje</p>
-<input name="3">
+<div class="crossword">
 
-<p>6. Evaluación realizada entre estudiantes</p>
-<input name="6">
+<script>
 
-<p>9. Evaluación realizada por el propio estudiante</p>
-<input name="9">
+for(let i=0;i<17;i++){
 
-<p>11. Proceso mediante el cual se adquieren conocimientos</p>
-<input name="11">
+for(let j=0;j<18;j++){
 
-<p>12. Capacidad del estudiante para autorregularse</p>
-<input name="12">
+if(soluciones[i][j]==" "){
 
-<p>13. Proceso de ajuste de la enseñanza según avances</p>
-<input name="13">
+document.write('<div class="block"></div>')
 
-<br><br>
+}else{
+
+document.write(`<input maxlength="1" class="cell" data-row="${i}" data-col="${j}">`)
+
+}
+
+}
+
+}
+
+</script>
+
+</div>
 
 <button onclick="revisar()">Revisar respuestas</button>
 
